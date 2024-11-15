@@ -1,0 +1,24 @@
+@startuml
+start
+:Terima Barang;
+:Input Data Barang;
+if (Data Lengkap?) then (ya)
+  :Verifikasi Barang;
+  :Simpan Barang;
+  :Update Stok Barang;
+else (tidak)
+  :Minta Data Barang yang Kurang;
+endif
+:Pengelolaan Stok;
+if (Ada Permintaan?) then (ya)
+  :Proses Pengeluaran Barang;
+  :Update Stok;
+else (tidak)
+  :Lanjutkan Pemeliharaan Stok;
+endif
+:Pemeliharaan Data Barang;
+if (Barang Tidak Digunakan?) then (ya)
+  :Hapus Data Barang;
+endif
+stop
+@enduml

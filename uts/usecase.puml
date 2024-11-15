@@ -1,0 +1,31 @@
+@startuml
+actor "Admin" as Admin
+actor "Supplier" as Supplier
+actor "Warehouse Staff" as WarehouseStaff
+actor "User" as User
+
+rectangle "Pengelolaan Data Barang" {
+  usecase "Input Data Barang" as UC1
+  usecase "Verifikasi Barang" as UC2
+  usecase "Penyimpanan Barang" as UC3
+  usecase "Update Stok Barang" as UC4
+  usecase "Pengeluaran Barang" as UC5
+  usecase "Update Data Barang" as UC6
+  usecase "Pemeliharaan Data Barang" as UC7
+  usecase "Penghapusan Data Barang" as UC8
+}
+
+Admin --> UC1 : "Input Data"
+Admin --> UC6 : "Update Data"
+WarehouseStaff --> UC3 : "Simpan Barang"
+WarehouseStaff --> UC5 : "Proses Pengeluaran"
+WarehouseStaff --> UC7 : "Perawatan Data"
+WarehouseStaff --> UC8 : "Hapus Data"
+User --> UC5 : "Minta Barang"
+Supplier --> UC2 : "Kirim Barang"
+Supplier --> UC1 : "Kirim Data Barang"
+
+UC1 --> UC2 : "Verifikasi"
+UC5 --> UC4 : "Update Stok"
+
+@enduml
